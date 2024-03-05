@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Dokument\\Visual Studio\\Skola\\C#\\SAAB_TDD\\SAAB_TDD\\SAAB_TDD.csproj": {}
+    "C:\\Dokument\\Visual Studio\\Skola\\SAAB_TDD\\SAAB_TDD\\SAAB_TDD.csproj": {}
   },
   "projects": {
-    "C:\\Dokument\\Visual Studio\\Skola\\C#\\SAAB_TDD\\SAAB_TDD\\SAAB_TDD.csproj": {
+    "C:\\Dokument\\Visual Studio\\Skola\\SAAB_TDD\\SAAB_TDD\\SAAB_TDD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dokument\\Visual Studio\\Skola\\C#\\SAAB_TDD\\SAAB_TDD\\SAAB_TDD.csproj",
+        "projectUniqueName": "C:\\Dokument\\Visual Studio\\Skola\\SAAB_TDD\\SAAB_TDD\\SAAB_TDD.csproj",
         "projectName": "SAAB_TDD",
-        "projectPath": "C:\\Dokument\\Visual Studio\\Skola\\C#\\SAAB_TDD\\SAAB_TDD\\SAAB_TDD.csproj",
+        "projectPath": "C:\\Dokument\\Visual Studio\\Skola\\SAAB_TDD\\SAAB_TDD\\SAAB_TDD.csproj",
         "packagesPath": "C:\\Users\\Bane\\.nuget\\packages\\",
-        "outputPath": "C:\\Dokument\\Visual Studio\\Skola\\C#\\SAAB_TDD\\SAAB_TDD\\obj\\",
+        "outputPath": "C:\\Dokument\\Visual Studio\\Skola\\SAAB_TDD\\SAAB_TDD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

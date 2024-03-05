@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QkBkVn8wGo5SIXuJfrDa7gcimzrp/w+1RCacmEuoFZYngJEy+3y/AQ6HWMu6p8CQdzDf3n/Y1eWgfsceVSnEZA==",
+  "dgSpecHash": "v9h/sIpFbvOkwObWj8MfwZMzD0LLmbRFBCPY4d2xodEixYU/QfhAd+TSF6UJYlsf2DnOJ5wQNJgxRaEWgvpLXA==",
   "success": true,
-  "projectFilePath": "C:\\Dokument\\Visual Studio\\Skola\\C#\\SAAB_TDD\\SAAB_TDD.Test\\SAAB_TDD.Test.csproj",
+  "projectFilePath": "C:\\Dokument\\Visual Studio\\Skola\\SAAB_TDD\\SAAB_TDD.Test\\SAAB_TDD.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bane\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Bane\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
