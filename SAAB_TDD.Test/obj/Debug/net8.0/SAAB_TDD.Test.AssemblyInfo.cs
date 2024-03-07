@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SAAB_TDD.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+45321960ce4b8990c5cc293cf7891c294542aafd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5e5fedf6bda63b57500a9d5dae0a93fa816adb1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SAAB_TDD.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SAAB_TDD.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
