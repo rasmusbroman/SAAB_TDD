@@ -6,17 +6,17 @@ namespace SAAB_TDD
         public int minute;
         public int second;
         public int hour;
-
-        public SAAB_TDD() { }
-
-        public SAAB_TDD(int hour, int minute, int second)
+        public string amPm;
+        public int timeAdd;
+        public SAAB_TDD(int hour, int minute, int second, string amPm, int timeAdd)
         {
             this.hour = hour;
             this.minute = minute;
             this.second = second;
+            this.amPm = amPm;
+            this.timeAdd = timeAdd;
         }
-
-        public bool IsValid(int hour, int minute, int second)
+        public bool IsValid(/*int hour, int minute, int second*/)
         {
             if (hour >= 0 && hour < 24 && minute >= 0 && minute < 60 && second >= 0 && second < 60)
             {
@@ -25,9 +25,9 @@ namespace SAAB_TDD
             throw new ArgumentException("Time is not correct");
         }
 
-        public string TimeToString(int hour, int minute, int second, string amPm)
+        public string TimeToString(/*int hour, int minute, int second, string amPm*/)
         {
-            if (IsValid(hour, minute, second) == true)
+            if (IsValid(/*hour, minute, second*/) == true)
             {
                 const string hourBelowTen = "0";
                 string fullTime24HourFormat = $"{hour}:{minute}:{second}";
@@ -60,7 +60,7 @@ namespace SAAB_TDD
             }
         }
 
-        public bool IsAm(int hour, int minute, int second, string amPm)
+        public bool IsAm(/*int hour, int minute, int second, string amPm*/)
         {
             if (amPm == "am")
             {
@@ -91,7 +91,7 @@ namespace SAAB_TDD
         public string ConvertTimeToSecond(int hour, int minute, int second, string amPm, int timeAdd)
         {
             int totalSecondsFromOriginalTime = ((hour * 60) * 60) + (minute * 60) + second + timeAdd;
-            
+
             hour = totalSecondsFromOriginalTime / 3600;
             minute = (totalSecondsFromOriginalTime % 3600) / 60;
             second = (totalSecondsFromOriginalTime % 60);
@@ -108,7 +108,6 @@ namespace SAAB_TDD
                 amPm = "[am]";
             }
 
-
             const int if24hourFormat = 24;
             if (hour >= 24)
             {
@@ -120,7 +119,6 @@ namespace SAAB_TDD
             string lessThanTenMinutes = minute.ToString();
             string lessThanTenSeconds = second.ToString();
 
-
             if (hour < 10 && amPm == "am")
             {
                 amPm = "[am]";
@@ -131,6 +129,15 @@ namespace SAAB_TDD
                 amPm = "[pm]";
                 lessThanTenHour = addZero + lessThanTenHour;
             }
+            else if ((hour < 12 || hour > 9) && amPm == "am")
+            {
+                amPm = "[am]";
+            }
+            else if ((hour < 12 || hour > 9) && amPm == "pm")
+            {
+                amPm = "[pm]";
+            }
+
             else if (hour < 10)
             {
                 lessThanTenHour = addZero + lessThanTenHour;
@@ -150,14 +157,14 @@ namespace SAAB_TDD
             return fullNewTime;
         }
 
-        public string AddTime(int hour, int minute, int second, string amPm, int timeAdd)
+        public string AddTime(/*int hour, int minute, int second, string amPm, int timeAdd*/)
         {
-            if (amPm == "am")
+            if (amPm.Contains("am"))
             {
                 Console.WriteLine(ConvertTimeToSecond(hour, minute, second, amPm, timeAdd));
                 return ConvertTimeToSecond(hour, minute, second, amPm, timeAdd);
             }
-            else if (amPm == "pm")
+            else if (amPm.Contains("pm"))
             {
 
                 Console.WriteLine(ConvertTimeToSecond(hour, minute, second, amPm, timeAdd));
@@ -169,22 +176,87 @@ namespace SAAB_TDD
                 return ConvertTimeToSecond(hour, minute, second, amPm, timeAdd);
             }
         }
+
+        public static SAAB_TDD operator ++(SAAB_TDD time)
+        {
+            if (time.second < 59)
+            {
+                time.second += 1;
+            }
+            else if (time.minute < 59)
+            {
+                time.minute += 1;
+                time.second = 0;
+            }
+            else if (time.hour < 23)
+            {
+                time.hour += 1;
+                time.minute = 0;
+                time.second = 0;
+            }
+            else
+            {
+                time.hour = 0;
+                time.minute = 0;
+                time.second = 0;
+            }
+            Console.WriteLine(time);
+            return time;
+        }
+
+        public static SAAB_TDD operator --(SAAB_TDD time)
+        {
+            if (time.second > 0)
+            {
+                time.second -= 1;
+            }
+            else if (time.minute > 0)
+            {
+                time.minute -= 1;
+                time.second = 59;
+            }
+            else if (time.hour > 0)
+            {
+                time.hour -= 1;
+                time.minute = 59;
+                time.second = 59;
+            }
+            else
+            {
+                time.hour = 23;
+                time.minute = 59;
+                time.second = 59;
+            }
+            Console.WriteLine(time);
+            return time;
+        }
+
+
+
+        private int TotalSeconds => hour * 3600 + minute * 60 + second;
+
+        public static bool operator >(SAAB_TDD time1, SAAB_TDD time2)
+        {
+            return time1.TotalSeconds > time2.TotalSeconds;
+        }
+
+        public static bool operator <(SAAB_TDD time1, SAAB_TDD time2)
+        {
+            return time1.TotalSeconds < time2.TotalSeconds;
+        }
+
+        public static bool operator ==(SAAB_TDD time1, SAAB_TDD time2)
+        {
+            return time1.TotalSeconds == time2.TotalSeconds;
+        }
+
+        public static bool operator !=(SAAB_TDD time1, SAAB_TDD time2)
+        {
+            return !(time1 == time2);
+        }
     }
 }
 
-
-
-
-
-
-//public bool IsThisValid()
-//{
-//    if (hour >= 0 && hour < 24 && minute >= 0 && minute < 60 && second >= 0 && second < 60)
-//    {
-//        return true;
-//    }
-//    throw new ArgumentException("Time is not correct");
-//}
 
 
 
@@ -198,8 +270,6 @@ namespace SAAB_TDD
 //string showTime = $"{hourBelowTen}:{minute}:{second}: {amPm}";
 //return showTime;
 //hourBelowTen = "0";
-
-
 
 
 
