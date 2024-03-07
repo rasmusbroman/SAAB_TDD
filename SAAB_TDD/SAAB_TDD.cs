@@ -16,7 +16,7 @@ namespace SAAB_TDD
             this.amPm = amPm;
             this.timeAdd = timeAdd;
         }
-        public bool IsValid(/*int hour, int minute, int second*/)
+        public bool IsValid()
         {
             if (hour >= 0 && hour < 24 && minute >= 0 && minute < 60 && second >= 0 && second < 60)
             {
@@ -25,9 +25,9 @@ namespace SAAB_TDD
             throw new ArgumentException("Time is not correct");
         }
 
-        public string TimeToString(/*int hour, int minute, int second, string amPm*/)
+        public string TimeToString()
         {
-            if (IsValid(/*hour, minute, second*/) == true)
+            if (IsValid() == true)
             {
                 const string hourBelowTen = "0";
                 string fullTime24HourFormat = $"{hour}:{minute}:{second}";
@@ -60,7 +60,8 @@ namespace SAAB_TDD
             }
         }
 
-        public bool IsAm(/*int hour, int minute, int second, string amPm*/)
+
+        public bool IsAm()
         {
             if (amPm == "am")
             {
@@ -157,7 +158,7 @@ namespace SAAB_TDD
             return fullNewTime;
         }
 
-        public string AddTime(/*int hour, int minute, int second, string amPm, int timeAdd*/)
+        public string AddTime()
         {
             if (amPm.Contains("am"))
             {
@@ -237,6 +238,13 @@ namespace SAAB_TDD
 
         public static bool operator >(SAAB_TDD time1, SAAB_TDD time2)
         {
+            //TimeToStringAmPmTo24HourFormat();
+            //if (amPm.Contains("pm"))
+            //{
+            //    hour = hour < 12 ? hour + 12 : hour;
+            //    return hour;
+            //}
+
             return time1.TotalSeconds > time2.TotalSeconds;
         }
 
@@ -256,62 +264,3 @@ namespace SAAB_TDD
         }
     }
 }
-
-
-
-
-
-
-//string[] delimiters = { "[", "]" };
-////= stringHour.Split('[', ']').Trim();
-////nums = numbers.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-//hourBelowTen = displayHour(delimiters, StringSplitOptions.RemoveEmptyEntries);
-//hourBelowTen = "0" + displayHour.ToString();
-//string showTime = $"{hourBelowTen}:{minute}:{second}: {amPm}";
-//return showTime;
-//hourBelowTen = "0";
-
-
-
-/*
-public string TimeToString(int hour, int minute, int second, string amPm)
-{
-    if (IsValid(hour, minute, second) == true)
-    {
-        string hourBelowTen = "";
-        if (amPm.Contains("pm") || amPm.Contains("am"))
-        {
-            int displayHour = hour > 12 ? hour - 12 : hour == 12 ? 0 : hour;
-            if (displayHour < 10)
-            {
-                //string[] delimiters = { "[", "]" };
-                ////= stringHour.Split('[', ']').Trim();
-                ////nums = numbers.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-                //hourBelowTen = displayHour(delimiters, StringSplitOptions.RemoveEmptyEntries);
-                //hourBelowTen = "0" + displayHour.ToString();
-                //string showTime = $"{hourBelowTen}:{minute}:{second}: {amPm}";
-                //return showTime;
-                hourBelowTen = "0" + displayHour.ToString();
-                Console.WriteLine($"{hourBelowTen}:{minute}:{second}[{amPm}]");
-                return $"{hourBelowTen}:{minute}:{second}[{amPm}]";
-            }
-
-            Console.WriteLine($"{displayHour}:{minute}:{second}[{amPm}]");
-            return $"{displayHour}:{minute}:{second}[{amPm}]";
-        }
-
-        else if (hour < 10)
-        {
-            hourBelowTen = "0" + hour.ToString();
-            Console.WriteLine($"{hourBelowTen}:{minute}:{second}");
-            return $"{hourBelowTen}:{minute}:{second}";
-        }
-        Console.WriteLine($"{hour}:{minute}:{second}");
-        return $"{hour}:{minute}:{second}";
-    }
-    else
-    {
-        throw new ArgumentException("Time is not written correct");
-    }
-}
-*/

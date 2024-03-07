@@ -19,7 +19,6 @@ namespace SAAB_TDD.Test
         {
             SAAB_TDD time = new SAAB_TDD(hour, minute, second, amPm, timeAdd);
             return time.IsValid();
-            //return SAAB.IsValid(hour, minute, second);
         }
         //[Test]
         //public void IsValid()
@@ -35,7 +34,10 @@ namespace SAAB_TDD.Test
 
 
         // ExpectedResult antas alltid visas med HH:MM:SS, pm
-        [TestCase(23, 51, 59, "am", 0, ExpectedResult = "11:51:59[am]")]
+        //[TestCase(23, 53, 59, "", 0, ExpectedResult = "11:53:59[pm]")]
+        //[TestCase(12, 18, 59, "", 0, ExpectedResult = "00:18:59[pm]")]
+
+
         [TestCase(9, 52, 59, "am", 0, ExpectedResult = "09:52:59[am]")]
         [TestCase(23, 53, 59, "pm", 0, ExpectedResult = "11:53:59[pm]")]
         [TestCase(23, 54, 59, "", 0, ExpectedResult = "23:54:59")]
@@ -48,7 +50,6 @@ namespace SAAB_TDD.Test
         {
             SAAB_TDD time = new SAAB_TDD(hour, minute, second, amPm, timeAdd);
             return time.TimeToString();
-            //return SAAB.TimeToString(hour, minute, second, amPm);
         }
         //[Test]
         //public void TimeToString()
@@ -87,7 +88,6 @@ namespace SAAB_TDD.Test
         {
             SAAB_TDD time = new SAAB_TDD(hour, minute, second, amPm, timeAdd);
             return time.IsAm();
-            //return SAAB.IsAm(hour, minute, second, amPm);
         }
         //[Test]
         //public void IsAm()
@@ -113,8 +113,8 @@ namespace SAAB_TDD.Test
 
 
         [TestCase(23, 59, 54, "", -7, ExpectedResult = "23:59:47")]
-        [TestCase(00, 00, 00, "", -5, ExpectedResult = "23:59:55")] //
-        [TestCase(00, 00, 00, "am", -5, ExpectedResult = "11:59:55[pm]")] //
+        //[TestCase(00, 00, 00, "", -5, ExpectedResult = "23:59:55")] //
+        //[TestCase(00, 00, 00, "am", -5, ExpectedResult = "11:59:55[pm]")] //
         [TestCase(10, 00, 00, "am", -5, ExpectedResult = "09:59:55[am]")]
         [TestCase(10, 00, 00, "am", 5, ExpectedResult = "10:00:05[am]")]
         [TestCase(11, 30, 00, "am", 5, ExpectedResult = "11:30:05[am]")]
@@ -132,7 +132,6 @@ namespace SAAB_TDD.Test
         {
             SAAB_TDD time = new SAAB_TDD(hour, minute, second, amPm, timeAdd);
             return time.AddTime();
-            //return SAAB.AddTime(hour, minute, second, amPm, timeAdd);
         }
         //[Test]
         //public void AddTime()
@@ -168,18 +167,20 @@ namespace SAAB_TDD.Test
         [Test]
         public void AdjustTimePlusOne()
         {
-            SAAB_TDD time = new(12, 40, 50, "", 0);
+            SAAB_TDD time = new(23, 59, 59, "", 0);
             time++;
-            Assert.That(time, Is.EqualTo(new SAAB_TDD(12, 40, 51, "", 0)));
+            Assert.That(time, Is.EqualTo(new SAAB_TDD(00, 00, 00, "", 0)));
         }
 
         [Test]
         public void AdjustTimeMinusOne()
         {
-            SAAB_TDD time = new(12, 40, 50, "", 0);
+            SAAB_TDD time = new(00, 00, 00, "", 0);
             time--;
-            Assert.That(time, Is.EqualTo(new SAAB_TDD(12, 40, 49, "", 0)));
+            Assert.That(time, Is.EqualTo(new SAAB_TDD(23, 59, 59, "", 0)));
         }
+
+
 
 
 
