@@ -198,7 +198,6 @@ C:\Dokument\Visual Studio\SKOLA\C#\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\SAAB_
 C:\Dokument\Visual Studio\SKOLA\C#\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\SAAB_TDD.Test.AssemblyInfo.cs
 C:\Dokument\Visual Studio\SKOLA\C#\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\SAAB_TDD.Test.csproj.CoreCompileInputs.cache
 C:\Dokument\Visual Studio\SKOLA\C#\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\SAAB_TDD.Test.sourcelink.json
-C:\Dokument\Visual Studio\SKOLA\C#\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\SAAB_TDD.Test.csproj.CopyComplete
 C:\Dokument\Visual Studio\SKOLA\C#\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\SAAB_TDD.Test.dll
 C:\Dokument\Visual Studio\SKOLA\C#\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\refint\SAAB_TDD.Test.dll
 C:\Dokument\Visual Studio\SKOLA\C#\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\SAAB_TDD.Test.pdb
@@ -307,3 +306,4 @@ C:\Users\theea\source\repos\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\refint\SAAB_
 C:\Users\theea\source\repos\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\SAAB_TDD.Test.pdb
 C:\Users\theea\source\repos\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\SAAB_TDD.Test.genruntimeconfig.cache
 C:\Users\theea\source\repos\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\ref\SAAB_TDD.Test.dll
+C:\Dokument\Visual Studio\SKOLA\C#\SAAB_TDD\SAAB_TDD.Test\obj\Debug\net8.0\SAAB_TDD.9FB9B77E.Up2Date
