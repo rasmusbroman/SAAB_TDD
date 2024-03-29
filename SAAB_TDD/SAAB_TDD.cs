@@ -16,7 +16,9 @@ namespace SAAB_TDD
             this.amPm = amPm;
             this.timeAdd = timeAdd;
         }
-        public bool IsValid()
+
+
+        public bool IsTimeValid()
         {
             if (hour >= 0 && hour < 24 && minute >= 0 && minute < 60 && second >= 0 && second < 60)
             {
@@ -25,9 +27,9 @@ namespace SAAB_TDD
             throw new ArgumentException("Time is not correct");
         }
 
-        public string TimeToString()
+        public string ConvertTimeToString()
         {
-            if (IsValid() == true)
+            if (IsTimeValid() == true)
             {
                 const string hourBelowTen = "0";
                 string fullTime24HourFormat = $"{hour}:{minute}:{second}";
@@ -61,7 +63,7 @@ namespace SAAB_TDD
         }
 
 
-        public bool IsAm()
+        public bool IsAmAndPm()
         {
             if (amPm == "am")
             {
@@ -158,6 +160,8 @@ namespace SAAB_TDD
             return fullNewTime;
         }
 
+
+        //Metod för att räkna om tiden när vi passerar ny timme eller dag.
         public string AddTime()
         {
             if (amPm.Contains("am"))
@@ -178,6 +182,7 @@ namespace SAAB_TDD
             }
         }
 
+        //Metoder för att kunna addera och subtrahera tiden.
         public static SAAB_TDD operator ++(SAAB_TDD time)
         {
             if (time.second < 59)
@@ -233,18 +238,11 @@ namespace SAAB_TDD
         }
 
 
-
+        //jämför två tider genom att först omvandla tiden till sekunder.
         private int TotalSeconds => hour * 3600 + minute * 60 + second;
 
         public static bool operator >(SAAB_TDD time1, SAAB_TDD time2)
-        {
-            //TimeToStringAmPmTo24HourFormat();
-            //if (amPm.Contains("pm"))
-            //{
-            //    hour = hour < 12 ? hour + 12 : hour;
-            //    return hour;
-            //}
-
+        {            
             return time1.TotalSeconds > time2.TotalSeconds;
         }
 
