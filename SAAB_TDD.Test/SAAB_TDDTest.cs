@@ -18,7 +18,7 @@ namespace SAAB_TDD.Test
         public bool IsValid(int hour, int minute, int second, string amPm, int timeAdd)
         {
             SAAB_TDD time = new SAAB_TDD(hour, minute, second, amPm, timeAdd);
-            return time.IsValid();
+            return time.IsTimeValid();
         }
         //[Test]
         //public void IsValid()
@@ -49,7 +49,7 @@ namespace SAAB_TDD.Test
         public string TimeToString(int hour, int minute, int second, string amPm, int timeAdd)
         {
             SAAB_TDD time = new SAAB_TDD(hour, minute, second, amPm, timeAdd);
-            return time.TimeToString();
+            return time.ConvertTimeToString();
         }
         //[Test]
         //public void TimeToString()
@@ -87,7 +87,7 @@ namespace SAAB_TDD.Test
         public bool IsAm(int hour, int minute, int second, string amPm, int timeAdd)
         {
             SAAB_TDD time = new SAAB_TDD(hour, minute, second, amPm, timeAdd);
-            return time.IsAm();
+            return time.IsAmAndPm();
         }
         //[Test]
         //public void IsAm()
