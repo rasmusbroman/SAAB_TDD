@@ -17,10 +17,25 @@ namespace SAAB_TDD.Test
         [TestCase(23, 59, 59, "", 0, ExpectedResult = true)]
         [TestCase(03, 01, 45, "", 0, ExpectedResult = true)]
         [TestCase(11, 45, 33, "", 0, ExpectedResult = true)]
+        [TestCase(24, 25, 33, "", 0, ExpectedResult = false)]
+        [TestCase(-2, 15, 33, "", 0, ExpectedResult = false)]
+        [TestCase(02, 65, 33, "", 0, ExpectedResult = false)]
+        [TestCase(12, 35, 73, "", 0, ExpectedResult = false)]
         public bool IsTimeValid(int hour, int minute, int second, string amPm, int timeAdd)
         {
             SAAB_TDD time = new SAAB_TDD(hour, minute, second, amPm, timeAdd);
             return time.IsTimeValid();
+        }
+
+        // Kontrollerar om det är förmiddan, AM
+        [TestCase(0, 30, 0, "", 0, ExpectedResult = true)]
+        [TestCase(11, 59, 59, "", 0, ExpectedResult = true)]
+        [TestCase(12, 0, 0, "", 0, ExpectedResult = false)]
+        [TestCase(23, 59, 59, "", 0, ExpectedResult = false)]
+        public bool IsAmVerification(int hour, int minute, int second, string amPm, int timeAdd)
+        {
+            SAAB_TDD time = new SAAB_TDD(hour, minute, second, amPm, timeAdd);
+            return time.IsAm();
         }
 
         // Omvandlar tiden till string

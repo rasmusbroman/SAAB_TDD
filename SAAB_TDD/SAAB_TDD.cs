@@ -3,11 +3,17 @@ namespace SAAB_TDD
 {
     public struct SAAB_TDD
     {
-        public int minute;
-        public int second;
-        public int hour;
-        public string amPm;
-        public int timeAdd;
+        private int minute;
+        private int second;
+        private int hour;
+        private string amPm;
+        private int timeAdd;
+
+        public int Minute { get => minute; set => minute = value; }
+        public int Second { get => second; set => second = value; }
+        public int Hour { get => hour; set => hour = value; }
+        public string AmPm { get => amPm; set => amPm = value; }
+        public int TimeAdd { get => timeAdd; set => timeAdd = value; }
         public SAAB_TDD(int hour, int minute, int second, string amPm, int timeAdd)
         {
             this.hour = hour;
@@ -24,7 +30,12 @@ namespace SAAB_TDD
             {
                 return true;
             }
-            throw new ArgumentException("Time is not correct");
+            return false;
+        }
+
+        public bool IsAm()
+        {
+            return hour < 12;
         }
 
         public string ConvertTimeToString()
